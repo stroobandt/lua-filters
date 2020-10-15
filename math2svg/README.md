@@ -92,27 +92,38 @@ These defaults offer the following benefits:
 
 
 ### Key value `math2svg_speech`
-This boolean key value
-
+This boolean key value controls whether textual annotations for speech generation are added to SVG formula.
+The default is `false`.
 
 ### Key value `math2svg_linebreaks`
-This boolean key value
+This boolean key value automatic switches automatic line breaking.
+The default is `true`.
 
 
 ### Key value `math2svg_font`
-This string key value
+This string key value allows to specify a [MathJax font](https://docs.mathjax.org/en/latest/output/fonts.html) different from the default `'TeX'` font.
+The string should correspond to the local directory name of the font in the `mathjax-node-cli` installation directory.
+For example, the key value string for the font in `/usr/local/lib/node_modules/mathjax-node-cli/node_modules/mathjax/fonts/HTML-CSS/Gyre-Pagella/` would be
+`Gyre-Pagella`.
 
 
 ### Key value `math2svg_ex`
-This positive integer key value
+This positive integer key value sets the `ex` unit in pixels.
+The default value is `6` pixels.
 
 
 ### Key value `math2svg_width`
-This positive integer key value
+This positive integer key value sets the container width in `ex` units for line breaking and tags.
+The default value is `100` ex.
 
 
 ### Key value `math2svg_extensions`
-This string key value
+This string key value allows to load one or more comma separated [MathJax extensions for TeX and LaTeX](https://docs.mathjax.org/en/latest/input/tex/extensions.html) present on the system.
+These MathJaX extensions reside in a subdirectory of the `mathjax-node-cli` installation directory.
+
+Take, for example, the installation directory of the extensions is `/usr/local/lib/node_modules/mathjax-node-cli/node_modules/mathjax/unpacked/extensions/`
+It contains a subdirectory `TeX` with the extension file `AMSmath.js`.
+This MathJaX extension can be loaded by specifying the string `'TeX/AMSmath'` as the value of the `math2svg_extensions` key.
 
 
 ## Privacy
