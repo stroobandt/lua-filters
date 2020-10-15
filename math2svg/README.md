@@ -69,7 +69,7 @@ Hence, depending on your system and intentions, not all keys are necessarily req
 
 
 ### Key value `math2svg_path`
-This key value is required when, on your system, the full path to the `tex2svg` executable
+This string key value is required when, on your system, the full path to the `tex2svg` executable
 of the `mathjax-node-cli` package differs from the default `'/usr/local/bin/tex2svg'`
 This is certainly the case on Windows systems.
 
@@ -81,7 +81,7 @@ $ which -a tex2svg
 ```
 
 ### Key values `math2svg_display2svg` and `math2svg_inline2svg`
-These logical key values specify wheter display math, respecitvely inline math,
+These boolean key values specify whether display math, respectively inline math,
 should be converted to SVG by the filter.
 The defaults convert display math to SVG, whereas inline math falls back to MathML
 when `--mathml` was specified at `pandoc` evocation.
@@ -89,6 +89,30 @@ These defaults offer the following benefits:
 
 - MathML output gets generated much faster than SVG output.
 - Moreover, MathML is well suited for InlineMath as line heights are kept small.
+
+
+### Key value `math2svg_speech`
+This boolean key value
+
+
+### Key value `math2svg_linebreaks`
+This boolean key value
+
+
+### Key value `math2svg_font`
+This string key value
+
+
+### Key value `math2svg_ex`
+This positive integer key value
+
+
+### Key value `math2svg_width`
+This positive integer key value
+
+
+### Key value `math2svg_extensions`
+This string key value
 
 
 ## Privacy
