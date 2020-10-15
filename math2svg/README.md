@@ -32,7 +32,8 @@ $ brew install pandoc nodejs npm
 > choco install pandoc nodejs npm
 ```
 
-Then, install `mathjax-node-cli` using `npm`.
+Then, by means of node's package manager `npm`, install the `mathjax-node-cli` package.
+This package comes with the `tex2svg` executable.
 Leave out the `sudo` on Windows.
 
 ```bash
@@ -50,8 +51,20 @@ To be used as a [Pandoc Lua filter](https://pandoc.org/lua-filters.html).
 pandoc --mathml --filter='math2svg.lua'
 ```
 
-MathML output gets generated much faster than SVG output.
-Moreover, MathML is well suited for InlineMath as line heights are kept small.
+The math2svg filter is entirely configurable over [`--metadata` key value pairs](https://pandoc.org/MANUAL.html#reader-options).
+The following configuration keys are available:
+
+|key|default value|
+|:--|:-----------:|
+|`math2svg_path`|`'/usr/local/bin/tex2svg'`|
+|`math2svg_display2svg`|`true`|
+|`math2svg_inline2svg`|`false`|
+|`math2svg_speech`|`false`|
+|`math2svg_linebreaks`|`true`|
+|`math2svg_font`|`'TeX'`|
+|`math2svg_ex`|`6`|
+|`math2svg_width`|`100`|
+|`math2svg_extensions`|`''`|
 
 Enter here the full path to the `tex2svg` binary of `mathjax-node-cli`.
 The full path can be found with the following command on \*nix, respectively Windows:
@@ -60,6 +73,9 @@ The full path can be found with the following command on \*nix, respectively Win
 $ which -a tex2svg
 > where tex2svg
 ```
+
+MathML output gets generated much faster than SVG output.
+Moreover, MathML is well suited for InlineMath as line heights are kept small.
 
 
 ## Privacy
