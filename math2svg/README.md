@@ -52,7 +52,8 @@ pandoc --mathml --filter='math2svg.lua'
 ```
 
 The math2svg filter is entirely configurable over [`--metadata` key value pairs](https://pandoc.org/MANUAL.html#reader-options).
-The following configuration keys are available:
+Nine configuration keys are available with sensible default values.
+Hence, depending on the system and your intentions, not all keys are necessarily required.
 
 |key|default value|
 |:--|:-----------:|
@@ -66,16 +67,28 @@ The following configuration keys are available:
 |`math2svg_width`|`100`|
 |`math2svg_extensions`|`''`|
 
-Enter here the full path to the `tex2svg` binary of `mathjax-node-cli`.
-The full path can be found with the following command on \*nix, respectively Windows:
+
+### `math2svg_path`
+This key value is required when, on your system, the full path to the `tex2svg` executable
+of the `mathjax-node-cli` package differs from the default `'/usr/local/bin/tex2svg'`
+This is certainly the case on Windows systems.
+
+The full path to `tex2svg` can be found with the following command on \*nix, respectively Windows:
 
 ```bash
 $ which -a tex2svg
 > where tex2svg
 ```
 
-MathML output gets generated much faster than SVG output.
-Moreover, MathML is well suited for InlineMath as line heights are kept small.
+### `math2svg_display2svg` and `math2svg_inline2svg`
+These logical key values specify wheter display math, respecitvely inline math,
+should be converted to SVG by the filter.
+The defaults convert display math to SVG, whereas inline math falls back to MathML
+when `--mathml` was specified at `pandoc` evocation.
+These defaults offer the following benefits:
+
+- MathML output gets generated much faster than SVG output.
+- Moreover, MathML is well suited for InlineMath as line heights are kept small.
 
 
 ## Privacy
