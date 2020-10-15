@@ -10,8 +10,8 @@ to [MathJax](https://www.mathjax.org/) generated
 [scalable vector graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
 in any of the [available MathJax fonts](https://docs.mathjax.org/en/latest/output/fonts.html).
 
-This is useful when a CSS paged media engine cannot process complex JavaScript
-as required by MathJax.
+This is useful when a CSS paged media engine (such as [Prince XML](https://www.princexml.com))
+cannot process complex JavaScript as required by MathJax.
 See: <https://www.print-css.rocks> for information about CSS paged media,
 a [W3C standard](https://www.w3.org/TR/css-page-3/).
 
@@ -53,7 +53,7 @@ pandoc --mathml --filter='math2svg.lua'
 
 The math2svg filter is entirely configurable over [`--metadata` key value pairs](https://pandoc.org/MANUAL.html#reader-options).
 Nine configuration keys are available with sensible default values.
-Hence, depending on the system and your intentions, not all keys are necessarily required.
+Hence, depending on your system and intentions, not all keys are necessarily required.
 
 |key|default value|
 |:--|:-----------:|
@@ -68,7 +68,7 @@ Hence, depending on the system and your intentions, not all keys are necessarily
 |`math2svg_extensions`|`''`|
 
 
-### `math2svg_path`
+### Key value `math2svg_path`
 This key value is required when, on your system, the full path to the `tex2svg` executable
 of the `mathjax-node-cli` package differs from the default `'/usr/local/bin/tex2svg'`
 This is certainly the case on Windows systems.
@@ -80,7 +80,7 @@ $ which -a tex2svg
 > where tex2svg
 ```
 
-### `math2svg_display2svg` and `math2svg_inline2svg`
+### Key values `math2svg_display2svg` and `math2svg_inline2svg`
 These logical key values specify wheter display math, respecitvely inline math,
 should be converted to SVG by the filter.
 The defaults convert display math to SVG, whereas inline math falls back to MathML
@@ -100,6 +100,7 @@ For code auditing, see also:
 
 - <https://github.com/mathjax/MathJax-node>
 - <https://github.com/pkra/mathjax-node-sre>
+- <https://github.com/mathjax/mathjax-node-cli>
 
 
 ## License
